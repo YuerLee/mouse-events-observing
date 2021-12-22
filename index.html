@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <p>
+      Observe the order and the preventDefault effects of the mouse events in the
+      console.
+    </p>
+
+    <fieldset>
+      <legend>Prevent input</legend>
+
+      <label>
+        <input type="radio" name="prevent-input" value="nothing" checked />
+        Nothing
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-input" value="click" />
+        Click
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-input" value="mousedown" />
+        Mousedown
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-input" value="mouseup" />
+        Mouseup
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Prevent button</legend>
+
+      <label>
+        <input type="radio" name="prevent-button" value="nothing" checked />
+        Nothing
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-button" value="click" />
+        Click
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-button" value="mousedown" />
+        Mousedown
+      </label>
+
+      <label>
+        <input type="radio" name="prevent-button" value="mouseup" />
+        Mouseup
+      </label>
+    </fieldset>
+
+    <div>
+      <input type="input" id="input" />
+
+      <button id="button">Click Me</button>
+    </div>
+
+    <div>
+      <h3>TL;DR</h3>
+      <p>
+        <ul>
+          <li>Order: mousedown => focus => mouseup => click</li>
+          <li>Focus: Input mousedown trigger input focus.</li>
+          <li>Blur: Target element (e.g. button) mousedown trigger input blur.</li>
+        </ul>
+      </p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
