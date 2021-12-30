@@ -1,14 +1,12 @@
 'use strict';
 
-function log(event) {
-  console.log(`${this.id}: ${event.type}`);
-}
-
 function preventButton(event) {
   const prevent = document.querySelector('[name=prevent-button]:checked').value;
 
   if (this.action === prevent) {
     event.preventDefault();
+  } else {
+    console.log(`button: ${event.type}`);
   }
 }
 
@@ -17,6 +15,8 @@ function preventInput(event) {
 
   if (this.action === prevent) {
     event.preventDefault();
+  } else {
+    console.log(`input: ${event.type}`);
   }
 }
 
@@ -25,7 +25,6 @@ function main() {
   const inputEl = document.getElementById('input');
 
   ['click', 'mousedown', 'mouseup'].forEach((action) => {
-    buttonEl.addEventListener(action, log, false);
     buttonEl.addEventListener(action, preventButton.bind({ action }), false);
   });
 
@@ -38,7 +37,6 @@ function main() {
     'blur',
     'focusout',
   ].forEach((action) => {
-    inputEl.addEventListener(action, log, false);
     inputEl.addEventListener(action, preventInput.bind({ action }), false);
   });
 }
